@@ -1,0 +1,1 @@
+# little-legends-config-editor
