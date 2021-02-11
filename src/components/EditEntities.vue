@@ -9,22 +9,7 @@
 			<div class="col-md-6"
 			     v-for="entityConfig in configFiles.configs.entityConfigCore.entityConfigs">
 				<toggle-box :title="entityConfig.name">
-					<form>
-						<fieldset>
-							<div class="form-group">
-								<label class="row">
-									<div class="col-sm-4 label-title">
-										Entity Name
-									</div>
-									<div class="col-sm-8">
-										<input type="text"
-										       class="form-control"
-										       v-model="entityConfig.name">
-									</div>
-								</label>
-							</div>
-						</fieldset>
-					</form>
+					<form-entity :entityConfig="entityConfig" />
 				</toggle-box>
 			</div>
 		</div>
@@ -32,12 +17,14 @@
 </template>
 
 <script>
+import FormEntity from "../components/FormEntity.vue";
 import ToggleBox from "../components/ToggleBox.vue";
 import configFiles from "../js/ConfigFiles";
 
 export default {
 	name: "EditEntities",
 	components: {
+		FormEntity,
 		ToggleBox
 	},
 	setup() {
