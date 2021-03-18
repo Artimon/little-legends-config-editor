@@ -17,9 +17,17 @@
 
 				<input-checkbox label="Use Ground Breaking" :model="entityConfig.useGroundBreaking" description="Use the hardness of the ground for breaking the entity." />
 				<input-number-list label="Terrain Layers" :model="entityConfig.terrainLayers" description="Optional: Restricts entity placement to given layers." />
+				<input-text-list label="Ignore Detection Layers" :model="entityConfig.ignoreDetectionLayers" description="Optional: Defines layers that are not considered as blocking." />
+				<input-checkbox label="Requires Farmland" :model="entityConfig.requiresFarmland" />
 
 				<input-number label="Hardness" :model="entityConfig.hardness" description="Hardness to break the entity." />
 				<input-text label="Item Name" :model="entityConfig.itemName" description="The item if the entity has a 1 to 1 item representation." />
+
+				<input-checkbox label="Is Collectable" :model="entityConfig.isCollectable" description="Can be directly picked up without having to break it via tool." />
+				<input-checkbox label="Is Crafting Device" :model="entityConfig.isCraftingDevice" description="To open up the crafting menu on activation." />
+
+				<drop-item-list label="Drop Items" :model="entityConfig.dropItems" />
+
 				<input-number label="Decay Time" :model="entityConfig.decayTime" description="Seconds to decay after placement." />
 			</div>
 		</fieldset>
@@ -37,10 +45,12 @@ import InputCheckbox from "../components/form/InputCheckbox.vue";
 import InputNumber from "../components/form/InputNumber.vue";
 import InputNumberList from "../components/form/InputNumberList.vue";
 import InputText from "../components/form/InputText.vue";
+import InputTextList from "../components/form/InputTextList.vue";
+import DropItemList from "../components/configs/DropItemList.vue";
 
 export default {
 	name: "FormEntity",
-	components: { InputCheckbox, InputText, InputNumber, InputNumberList },
+	components: { InputCheckbox, InputNumber, InputNumberList, InputText, InputTextList, DropItemList },
 	props: {
 		entityConfig: Object
 	}
