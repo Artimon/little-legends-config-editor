@@ -5,9 +5,10 @@
 		</h5>
 
 		<div class="row"
-			 v-for="(value, index) in model">
+			 v-for="(childModel, index) in model"
+			 :key="childModel">
 			<div class="col offset-1">
-				<drop-item-values :model="model[index]"></drop-item-values>
+				<drop-item-values :model="childModel"></drop-item-values>
 
 				<button type="button"
 						class="btn btn-primary"

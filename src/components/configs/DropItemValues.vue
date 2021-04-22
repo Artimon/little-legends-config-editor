@@ -13,6 +13,7 @@ import InputCheckbox from "../../components/form/InputCheckbox.vue";
 import InputNumber from "../../components/form/InputNumber.vue";
 import InputText from "../../components/form/InputText.vue";
 
+// https://stackoverflow.com/questions/64486340/vue-composition-api-is-not-reactive-inside-v-for
 export default {
 	name: "DropItemValues",
 	components: { InputCheckbox, InputNumber, InputText },
@@ -22,7 +23,7 @@ export default {
 	setup() {
 		return {
 			log(message) {
-				console.log('Drop Item:', message, this.model.itemName);
+				console.log('Drop Item:', message);
 			}
 		}
 	}

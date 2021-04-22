@@ -18,6 +18,24 @@ class ConfigFiles {
 		};
 		this.loaded = true;
 
+		this.configs.entityConfigCore.entityConfigs.forEach((entityConfig) => {
+			if (!entityConfig.breakingToolConfig) {
+				entityConfig.breakingToolConfig = {
+					types: [],
+					level: 0
+				};
+			}
+
+			if (!entityConfig.growthConfig) {
+				entityConfig.growthConfig = {
+					growsIntoActorName: undefined,
+					growsIntoEntityName: undefined,
+					states: undefined,
+					time: 0
+				};
+			}
+		});
+
 		console.log(this.configs.entityConfigCore);
 
 		//let fileSystemDirectoryHandle = await window.showDirectoryPicker();

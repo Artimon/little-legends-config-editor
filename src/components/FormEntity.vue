@@ -20,15 +20,21 @@
 				<input-text-list label="Ignore Detection Layers" :model="entityConfig.ignoreDetectionLayers" description="Optional: Defines layers that are not considered as blocking." />
 				<input-checkbox label="Requires Farmland" :model="entityConfig.requiresFarmland" />
 
-				<input-number label="Hardness" :model="entityConfig.hardness" description="Hardness to break the entity." />
-				<input-text label="Item Name" :model="entityConfig.itemName" description="The item if the entity has a 1 to 1 item representation." />
+				<input-number label="Hardness" :model="entityConfig.hardness" description="Optional: Hardness to break the entity." />
+				<input-text label="Item Name" :model="entityConfig.itemName" description="Optional: The item if the entity has a 1 to 1 item representation." />
 
 				<input-checkbox label="Is Collectable" :model="entityConfig.isCollectable" description="Can be directly picked up without having to break it via tool." />
-				<input-checkbox label="Is Crafting Device" :model="entityConfig.isCraftingDevice" description="To open up the crafting menu on activation." />
+				<input-text label="Crafting Device Name" :model="entityConfig.craftingDeviceName" description="Optional: Name of the crafting device from the crafting device config." />
+				<input-checkbox label="Is Usable" :model="entityConfig.isUsable" description="This entity is usable (activated by secondary mouse button)." />
+				<input-number label="Storage Size" :model="entityConfig.storageSize" description="Optional: Storage size of storage containers (currently not working)." />
 
 				<drop-item-list label="Drop Items" :model="entityConfig.dropItems" />
+				<breaking-tool label="Breaking Tools" :model="entityConfig.breakingToolConfig"></breaking-tool>
+				<input-text label="Mining Audio Collection Name" :model="entityConfig.miningAudioCollectionName" description="Optional: Name of the audio collection from the audio collection config." />
 
-				<input-number label="Decay Time" :model="entityConfig.decayTime" description="Seconds to decay after placement." />
+				<input-number label="Decay Time" :model="entityConfig.decayTime" description="Optional: Seconds to decay after placement." />
+
+				<growth label="Growth" :model="entityConfig.growthConfig" />
 			</div>
 		</fieldset>
 	</form>
@@ -47,10 +53,12 @@ import InputNumberList from "../components/form/InputNumberList.vue";
 import InputText from "../components/form/InputText.vue";
 import InputTextList from "../components/form/InputTextList.vue";
 import DropItemList from "../components/configs/DropItemList.vue";
+import BreakingTool from "../components/configs/BreakingTool.vue";
+import Growth from "../components/configs/Growth.vue";
 
 export default {
 	name: "FormEntity",
-	components: { InputCheckbox, InputNumber, InputNumberList, InputText, InputTextList, DropItemList },
+	components: { InputCheckbox, InputNumber, InputNumberList, InputText, InputTextList, DropItemList, BreakingTool, Growth },
 	props: {
 		entityConfig: Object
 	}
