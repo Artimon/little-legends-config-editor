@@ -35,6 +35,7 @@
 				<input-number label="Decay Time" :model="entityConfig.decayTime" description="Optional: Seconds to decay after placement." />
 
 				<growth label="Growth" :model="entityConfig.growthConfig" />
+				<fruit label="Fruit" :model="entityConfig.fruitConfig" />
 			</div>
 		</fieldset>
 	</form>
@@ -55,10 +56,11 @@ import InputTextList from "../components/form/InputTextList.vue";
 import DropItemList from "../components/configs/DropItemList.vue";
 import BreakingTool from "../components/configs/BreakingTool.vue";
 import Growth from "../components/configs/Growth.vue";
+import Fruit from "../components/configs/Fruit.vue";
 
 export default {
 	name: "FormEntity",
-	components: { InputCheckbox, InputNumber, InputNumberList, InputText, InputTextList, DropItemList, BreakingTool, Growth },
+	components: { InputCheckbox, InputNumber, InputNumberList, InputText, InputTextList, DropItemList, BreakingTool, Growth, Fruit },
 	props: {
 		entityConfig: Object
 	}

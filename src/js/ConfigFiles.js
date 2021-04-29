@@ -34,6 +34,19 @@ class ConfigFiles {
 					time: 0
 				};
 			}
+
+			if (!entityConfig.fruitConfig) {
+				entityConfig.fruitConfig = {
+					dropItemConfig: {
+						itemName: "",
+						minAmount: 0,
+						maxAmount: 0,
+						probability: 0,
+						growthFinished: false
+					},
+					time: 0
+				};
+			}
 		});
 
 		console.log(this.configs.entityConfigCore);
