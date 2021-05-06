@@ -47,6 +47,15 @@ class ConfigFiles {
 					time: 0
 				};
 			}
+
+			if (!entityConfig.actorSpawnConfig) {
+				entityConfig.actorSpawnConfig = {
+					actorName: "",
+					duration: 0,
+					removeOnSpawn: false,
+					addEffectMining: false
+				};
+			}
 		});
 
 		console.log(this.configs.entityConfigCore);
