@@ -37,6 +37,7 @@
 				<growth label="Growth" :model="entityConfig.growthConfig" />
 				<fruit label="Fruit" :model="entityConfig.fruitConfig" />
 				<actor-spawn label="Actor Spawn" :model="entityConfig.actorSpawnConfig" />
+				<area-spawn-list label="Area Spawns" :model="entityConfig.areaSpawns" />
 			</div>
 		</fieldset>
 	</form>
@@ -59,10 +60,11 @@ import BreakingTool from "../components/configs/BreakingTool.vue";
 import Growth from "../components/configs/Growth.vue";
 import Fruit from "../components/configs/Fruit.vue";
 import ActorSpawn from "../components/configs/ActorSpawn.vue";
+import AreaSpawnList from "../components/configs/AreaSpawnList.vue";
 
 export default {
 	name: "FormEntity",
-	components: { InputCheckbox, InputNumber, InputNumberList, InputText, InputTextList, DropItemList, BreakingTool, Growth, Fruit, ActorSpawn },
+	components: {AreaSpawnList, InputCheckbox, InputNumber, InputNumberList, InputText, InputTextList, DropItemList, BreakingTool, Growth, Fruit, ActorSpawn },
 	props: {
 		entityConfig: Object
 	}

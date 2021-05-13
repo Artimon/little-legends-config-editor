@@ -56,6 +56,8 @@ class ConfigFiles {
 					addEffectMining: false
 				};
 			}
+
+			entityConfig.areaSpawns = entityConfig.areaSpawns || [];
 		});
 
 		console.log(this.configs.entityConfigCore);
