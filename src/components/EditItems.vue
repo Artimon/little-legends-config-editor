@@ -1,15 +1,15 @@
 <template>
-	<div class="component-edit-entities">
+	<div class="component-edit-items">
 		<h2>
-			Entity Config Core
+			Item Config Core
 		</h2>
 
 		<div class="row"
 		     v-if="configFiles.loaded">
 			<div class="col-md-6"
-			     v-for="entityConfig in configFiles.configs.entityConfigCore.entityConfigs">
-				<toggle-box :title="entityConfig.name">
-					<form-entity :entityConfig="entityConfig" />
+			     v-for="itemConfig in configFiles.configs.itemConfigCore.itemConfigs">
+				<toggle-box :title="itemConfig.name">
+					<form-item :itemConfig="itemConfig" />
 				</toggle-box>
 			</div>
 		</div>
@@ -17,14 +17,14 @@
 </template>
 
 <script>
-import FormEntity from "../components/FormEntity.vue";
+import FormItem from "../components/FormItem.vue";
 import ToggleBox from "../components/ToggleBox.vue";
 import configFiles from "../js/ConfigFiles";
 
 export default {
-	name: "EditEntities",
+	name: "EditItems",
 	components: {
-		FormEntity,
+		FormItem,
 		ToggleBox
 	},
 	setup() {
@@ -36,7 +36,7 @@ export default {
 </script>
 
 <style lang="scss">
-.component-edit-entities {
+.component-edit-items {
 	.label-title {
 		padding-top: 7px;
 		padding-bottom: 7px;

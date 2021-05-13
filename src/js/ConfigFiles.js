@@ -5,16 +5,9 @@ let configFiles;
 class ConfigFiles {
 	async openDirectory() {
 		this._fileSystemDirectoryHandle = await window.showDirectoryPicker();
-
-		this._fileHandles = await Promise.all([
-			this._fileSystemDirectoryHandle.getFileHandle("Entities.json")
-		]);
-
-		let file = await this._fileHandles[0].getFile();
-		let text = await file.text();
-
 		this.configs = {
-			entityConfigCore: JSON.parse(text)
+			entityConfigCore: await this._getFileText("Entities.json"),
+			itemConfigCore: await this._getFileText("Items.json")
 		};
 		this.loaded = true;
 
@@ -60,7 +53,7 @@ class ConfigFiles {
 			entityConfig.areaSpawns = entityConfig.areaSpawns || [];
 		});
 
-		console.log(this.configs.entityConfigCore);
+		console.log(this.configs);
 
 		//let fileSystemDirectoryHandle = await window.showDirectoryPicker();
 
@@ -79,6 +72,18 @@ class ConfigFiles {
 		// wirtable = await fileHandle.createWritable()
 		// await wirtable.write('lol')
 		// await wirtable.close()
+	}
+
+	/**
+	 * @param {string} fileName
+	 * @returns {Promise<*>}
+	 */
+	async _getFileText(fileName) {
+		let fileHandle = await this._fileSystemDirectoryHandle.getFileHandle(fileName),
+			file = await fileHandle.getFile(),
+			text = await file.text();
+
+		return JSON.parse(text);
 	}
 }
 
